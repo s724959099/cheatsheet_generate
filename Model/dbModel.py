@@ -20,7 +20,41 @@ class Topic(db.Model):
     __tablename__ = 'Topic'
     TopicId = db.Column(db.Integer, primary_key=True, autoincrement=True)
     Name = db.Column(db.String(256), nullable=False)
+    SoftDelete = db.Column(TINYINT, nullable=False)
+    CreateDate = db.Column(db.DateTime(timezone=True), nullable=False)
+    CreateBy = db.Column(db.String(128), nullable=False)
+    ModifiedDate = db.Column(db.DateTime(timezone=True), nullable=True)
+    ModifiedBy = db.Column(db.String(128), nullable=True)
+    Html = db.Column(db.TEXT, nullable=True)
+    MarkDown = db.Column(db.TEXT, nullable=True)
 
+
+class Table(db.Model):
+    __tablename__ = 'Table'
+    TableId = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    TopicId = db.Column(db.Integer, db.ForeignKey("Topic.TopicId"),nullable=False)
+    Name = db.Column(db.String(256), nullable=False)
+    Color = db.Column(db.String(256), nullable=False)
+    SoftDelete = db.Column(TINYINT, nullable=False)
+    CreateDate = db.Column(db.DateTime(timezone=True), nullable=False)
+    CreateBy = db.Column(db.String(128), nullable=False)
+    ModifiedDate = db.Column(db.DateTime(timezone=True), nullable=True)
+    ModifiedBy = db.Column(db.String(128), nullable=True)
+
+
+class TableColumn(db.Model):
+    __tablename__ = 'TableColumn'
+    TableColumnId = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    TableId = db.Column(db.Integer, db.ForeignKey("Table.TableId"), nullable=False)
+    Name = db.Column(db.String(256), nullable=False)
+    Comment = db.Column(db.String(256), nullable=True)
+    SoftDelete = db.Column(TINYINT, nullable=False)
+    CreateDate = db.Column(db.DateTime(timezone=True), nullable=False)
+    CreateBy = db.Column(db.String(128), nullable=False)
+    ModifiedDate = db.Column(db.DateTime(timezone=True), nullable=True)
+    ModifiedBy = db.Column(db.String(128), nullable=True)
+    Html = db.Column(db.TEXT, nullable=True)
+    MarkDown = db.Column(db.TEXT, nullable=True)
 
 
 if __name__ == '__main__':
