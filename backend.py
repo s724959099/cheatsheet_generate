@@ -1,6 +1,7 @@
-from flask import Flask
+from flask import *
 
 app = Flask(__name__)
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 
 @app.route('/')
@@ -8,5 +9,13 @@ def hello_world():
     return 'Hello World!'
 
 
+@app.route('/topic')
+def topic():
+    return render_template("topic.html")
+
+
 if __name__ == '__main__':
-    app.run()
+    """
+    browser-sync start -p "127.0.0.1:5000" -f "../cheatsheet_generate"
+    """
+    app.run(debug=True)

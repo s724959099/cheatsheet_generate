@@ -19,7 +19,8 @@ manager.add_command('db', MigrateCommand)
 class Topic(db.Model):
     __tablename__ = 'Topic'
     TopicId = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    Name = db.Column(db.String(256), nullable=False)
+    Title = db.Column(db.String(256), nullable=False)
+    SubTitle = db.Column(db.String(256), nullable=False)
     SoftDelete = db.Column(TINYINT, nullable=False)
     CreateDate = db.Column(db.DateTime(timezone=True), nullable=False)
     CreateBy = db.Column(db.String(128), nullable=False)
