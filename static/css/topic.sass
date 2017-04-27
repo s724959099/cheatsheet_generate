@@ -63,3 +63,13 @@ html, body
 
 input::placeholder
   color: #808080
+
+
+.modal-mask
+  z-index: 9998
+  position: fixed
+  top: 0px
+  left: 0px
+  +size(100%,100%)
+  background-color: rgba(0, 0, 0, .5)
+  transition: opacity .3s ease
