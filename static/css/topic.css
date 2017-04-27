@@ -21,6 +21,14 @@ html, body {
   background-color: #343D46;
   font-family: Helvetica, Arial, 微軟正黑體; }
 
+.topic_add {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px; }
+
+.color_add {
+  border: solid 2px white; }
+
 .topic_table {
   width: 200px;
   margin-top: 5px;
