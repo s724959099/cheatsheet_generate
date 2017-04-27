@@ -29,6 +29,10 @@ html, body {
 .color_add {
   border: solid 2px white; }
 
+#app {
+  width: inherit;
+  height: inherit; }
+
 .topic_table {
   width: 200px;
   margin-top: 5px;

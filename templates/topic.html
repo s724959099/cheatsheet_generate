@@ -6,7 +6,7 @@
     {% include "extend/staticfile.html" %}
 </head>
 <body>
-<div class="container column wrap justify-start content-start">
+<div id="#app" class="container column wrap justify-start content-start">
     <div class="topic_table color1">
         <div class="flex items-center justify-between ">
             <h5>
@@ -179,4 +179,5 @@
     </div>
 </div>
 </body>
+<script src="{{ url_for('static', filename='js/topic.js')}}"></script>
 </html>
