@@ -1,24 +1,42 @@
 @import "css_lib.sass"
 
 *
-  +test
+  //+test
+
+html, body
+  background-color: #343D46
 
 .topic_table
-  width: 250px
-  margin-top: 10px
+  width: 200px
+  margin-top: 5px
   margin-right: 20px
   border-radius: 10px
   padding-left: 15px
   padding-bottom: 15px
-  h4
+  padding-right: 15px
+  h5
     font-weight: 900
 
   ul
     +to_0
+    margin-top: -5x
+    margin-left: -5px
     li
       font-size: 18px
-      color: #FFFFFF
       list-style-type: none
+      &:nth-child(odd) a
+        color: #e6e6e6
+        background-color: rgba(0, 0, 0, 0.05)
+      a
+        color: #FFFFFF
+        display: block
+        width: 100%
+        text-decoration: none
+        border-radius: 10px
+        padding-left: 10px
+        &:hover
+          color: black
+          background-color: rgba(255, 255, 255, 0.1)
 
 .color1
   background-color: #C594C5
