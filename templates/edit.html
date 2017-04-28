@@ -14,11 +14,10 @@
         </div>
     </div>
     <div class="container column wrap justify-start content-start">
-        <div class="topic_add color_add column justify-center content-center">
-            <button class="mdl-button mdl-js-button mdl-button--fab">
-                <i class="material-icons">add</i>
-            </button>
-        </div>
+        <table_add
+                @add_click="add_click"
+        ></table_add>
+        <topic_table></topic_table>
 
         <div class="topic_table color1">
             <div class="flex items-center justify-between ">
@@ -191,7 +190,7 @@
             </ul>
         </div>
     </div>
-    <button id="show-modal" @click="showModal = true">Show Modal</button>
+    <!--<button id="show-modal" @click="showModal = true">Show Modal</button>-->
     <modal v-if="showModal" @close="showModal = false">
     </modal>
 </div>

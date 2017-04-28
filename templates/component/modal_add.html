@@ -5,3 +5,35 @@
         </div>
     </transition>
 </script>
+
+
+<template id="table_add">
+    <div class="topic_add color_add column justify-center content-center">
+        <button class="mdl-button mdl-js-button mdl-button--fab"
+                @click="btn_fn()"
+        >
+            <i class="material-icons">add</i>
+        </button>
+    </div>
+</template>
+
+
+<template id="topic_table">
+    <div class="topic_table color1">
+        <div class="flex items-center justify-between ">
+            <h5>
+                {{Title}}
+            </h5>
+            <small>{{SubTitle}}</small>
+        </div>
+        <!--<ul>-->
+            <!--<li><a>content1</a></li>-->
+            <!--<li><a>content2</a></li>-->
+            <!--<li><a>content3</a></li>-->
+            <!--<li><a>content4</a></li>-->
+            <!--<li><a>content5</a></li>-->
+            <!--<li><a>content6</a></li>-->
+            <!--<li><a>content7</a></li>-->
+        <!--</ul>-->
+    </div>
+</template>
