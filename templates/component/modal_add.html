@@ -27,13 +27,22 @@
             <small>{{SubTitle}}</small>
         </div>
         <!--<ul>-->
-            <!--<li><a>content1</a></li>-->
-            <!--<li><a>content2</a></li>-->
-            <!--<li><a>content3</a></li>-->
-            <!--<li><a>content4</a></li>-->
-            <!--<li><a>content5</a></li>-->
-            <!--<li><a>content6</a></li>-->
-            <!--<li><a>content7</a></li>-->
+        <!--<li><a>content1</a></li>-->
+        <!--<li><a>content2</a></li>-->
+        <!--<li><a>content3</a></li>-->
+        <!--<li><a>content4</a></li>-->
+        <!--<li><a>content5</a></li>-->
+        <!--<li><a>content6</a></li>-->
+        <!--<li><a>content7</a></li>-->
         <!--</ul>-->
     </div>
+</template>
+
+<template id="live-edit">
+    <template v-if="editable">
+        <textarea v-if="multiline" class="live-edit" type="text" v-model="modelvalue"
+                  :placeholder="placeholder"></textarea>
+        <input v-else class="live-edit" type="text" v-model="modelvalue" :placeholder="placeholder">
+    </template>
+    <span v-else>{{modelvalue}}</span>
 </template>
