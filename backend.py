@@ -19,6 +19,11 @@ def edit():
     return render_template("edit.html")
 
 
+@app.route('/add')
+def add():
+    return render_template("add.html")
+
+
 if __name__ == '__main__':
     """
     browser-sync start -p "127.0.0.1:5000" -f "../cheatsheet_generate"
