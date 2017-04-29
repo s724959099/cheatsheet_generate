@@ -28,11 +28,27 @@ class Topic(db.Model):
     Html = db.Column(db.TEXT, nullable=True)
     MarkDown = db.Column(db.TEXT, nullable=True)
 
+    def __init__(
+            self,
+            Name,
+            CreateBy,
+            Html=None,
+            MarkDown=None,
+    ):
+        self.Name = Name
+        self.SoftDelete = False
+        self.CreateDate = datetime.datetime.now()
+        self.CreateBy = CreateBy
+        self.ModifiedDate = None
+        self.ModifiedBy = None
+        self.Html = Html
+        self.MarkDown = MarkDown
+
 
 class Table(db.Model):
     __tablename__ = 'Table'
     TableId = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    TopicId = db.Column(db.Integer, db.ForeignKey("Topic.TopicId"),nullable=False)
+    TopicId = db.Column(db.Integer, db.ForeignKey("Topic.TopicId"), nullable=False)
     Title = db.Column(db.String(256), nullable=False)
     SubTitle = db.Column(db.String(256), nullable=False)
     Color = db.Column(db.String(256), nullable=False)
@@ -42,6 +58,23 @@ class Table(db.Model):
     ModifiedDate = db.Column(db.DateTime(timezone=True), nullable=True)
     ModifiedBy = db.Column(db.String(128), nullable=True)
 
+    def __init__(
+            self,
+            TopicId,
+            Title,
+            SubTitle,
+            Color,
+            CreateBy,
+    ):
+        self.TopicId = TopicId
+        self.Title = Title
+        self.SubTitle = SubTitle
+        self.Color = Color
+        self.SoftDelete = False
+        self.CreateDate = datetime.datetime.now()
+        self.CreateBy = CreateBy
+        self.ModifiedDate = None
+        self.ModifiedBy = None
 
 
 class TableColumn(db.Model):
@@ -57,6 +90,26 @@ class TableColumn(db.Model):
     ModifiedBy = db.Column(db.String(128), nullable=True)
     Html = db.Column(db.TEXT, nullable=True)
     MarkDown = db.Column(db.TEXT, nullable=True)
+
+    def __init__(
+            self,
+            TableId,
+            Name,
+            CreateBy,
+            Comment=None,
+            Html=None,
+            MarkDown=None,
+    ):
+        self.TableId = TableId
+        self.Name = Name
+        self.SoftDelete = False
+        self.CreateDate = datetime.datetime.now()
+        self.CreateBy = CreateBy
+        self.Comment = Comment
+        self.ModifiedDate = None
+        self.ModifiedBy = None
+        self.Html = Html
+        self.MarkDown = MarkDown
 
 
 if __name__ == '__main__':

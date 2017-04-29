@@ -20,32 +20,34 @@ Vue.component('topic_table', {
     }
 })
 
-vue.Component("live-edit",{
-    name: '#live-edit',
-    props: {
-        value: {
-            type: String,
-            required: true,
-        },
-        editable: {
-            type: Boolean,
-            required: true,
-        },
-        multiline: {
-            type: Boolean,
-            default: false,
-        },
-        placeholder: {
-            type: String
-        }
-    },
-    data: ->
-
-    watch: {
-        modelvalue: (val)->
-            this.$emit('input', val)
-    }
-})
+#Vue.component("live-edit", {
+#    name: '#live-edit',
+#    props: {
+#        value: {
+#            type: String,
+#            required: true,
+#        },
+#        editable: {
+#            type: Boolean,
+#            required: true,
+#        },
+#        multiline: {
+#            type: Boolean,
+#            default: false,
+#        },
+#        placeholder: {
+#            type: String
+#        }
+#    }
+#    data: {
+#
+#    }
+#
+#    watch: {
+#        modelvalue: (val)->
+#            this.$emit('input', val)
+#    }
+#})
 
 
 vm = new Vue({
