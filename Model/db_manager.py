@@ -1,6 +1,6 @@
-# from Model.rest_model_view import *
+from Model.rest_model_view import *
 from Model.rest_model_json import *
-from Model.dbSmart import SmartDB
+from Model.dbSmart import SmartDB,Relation
 
 
 class TableManager:
@@ -15,3 +15,13 @@ class TopicManager:
         smart = SmartDB()
         topic = smart.insert_single(Topic, topic_data)
         return smart.commit(TopicJSON(topic))
+
+    @staticmethod
+    def view_single(TopicId):
+        multidata = TopicView.single(TopicId)
+        relation = Relation(multidata)
+        relation.set_name("Topic.Table")
+        relation.set_name("Table.TableColumn")
+        topic = relation.get("Topic")
+        print("done")
+

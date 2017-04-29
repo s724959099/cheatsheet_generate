@@ -27,6 +27,7 @@ class Topic(db.Model):
     ModifiedBy = db.Column(db.String(128), nullable=True)
     Html = db.Column(db.TEXT, nullable=True)
     MarkDown = db.Column(db.TEXT, nullable=True)
+    Table = db.relationship('Table', backref='Topic', lazy='dynamic')
 
     def __init__(
             self,
@@ -57,6 +58,7 @@ class Table(db.Model):
     CreateBy = db.Column(db.String(128), nullable=False)
     ModifiedDate = db.Column(db.DateTime(timezone=True), nullable=True)
     ModifiedBy = db.Column(db.String(128), nullable=True)
+    TableColumn= db.relationship('TableColumn', backref='Table', lazy='dynamic')
 
     def __init__(
             self,

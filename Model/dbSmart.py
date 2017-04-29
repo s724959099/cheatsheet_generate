@@ -1,4 +1,6 @@
+from sqlalchemy.inspection import inspect
 from Model.db_lib import *
+from Model import dbModel as db_model
 
 
 class SmartDB:
@@ -71,14 +73,6 @@ class Relation:
         self.to_model_json = {}
 
     def get(self, output_name):
-        def get_last_obj(data):
-            if data is None:
-                last_obj = None
-            if isinstance(data, list):
-                last_obj = data[-1]
-            else:
-                last_obj = data
-            return last_obj
 
         temp_obj = {}
         first_loop = True

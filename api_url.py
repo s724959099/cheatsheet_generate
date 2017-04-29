@@ -10,3 +10,4 @@ api = Api(
     description=""
 )
 api.add_resource(TopicREST, '/api/topic')
+api.add_resource(TopicIdREST, '/api/topic/<TopicId>')

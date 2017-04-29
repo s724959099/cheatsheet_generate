@@ -53,3 +53,18 @@ class TopicREST(Resource):
     def post(self):
         topic_data = json_get("topic_data")
         return TopicManager.add_topic(topic_data)
+
+
+class TopicIdREST(Resource):
+    def get(self,TopicId):
+        pass
+
+    def put(self):
+        pass
+
+    def delete(self):
+        pass
+
+    @return_transform("topic")
+    def post(self):
+        pass
