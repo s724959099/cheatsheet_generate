@@ -11,7 +11,7 @@ class TableManager:
 
 class TopicManager:
     @staticmethod
-    def add_table(topic_data):
+    def add_topic(topic_data):
         smart = SmartDB()
         topic = smart.insert_single(Topic, topic_data)
         return smart.commit(TopicJSON(topic))

@@ -8,12 +8,14 @@ vm = new Vue({
         add_table:->
             console.log(this.name)
             obj={
-                Name:this.name
+                topic_data:{
+                    Name:this.name
+                }
             }
 
             data=myAjax.postSync("/api/topic",obj)
             debugger
             if data.code==11
-                window.location="/edit/#{}"
+                window.location="/edit/#{data.topic.TopicId}"
     }
 })
