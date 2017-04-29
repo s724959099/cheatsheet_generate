@@ -49,5 +49,9 @@ class BaseJSON:
         return dict_output
 
 
-class TableJson(BaseJSON):
+class TableJSON(BaseJSON):
+    pass
+
+
+class TopicJSON(BaseJSON):
     pass

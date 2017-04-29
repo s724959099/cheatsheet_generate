@@ -16,8 +16,8 @@ def topic():
     return render_template("topic.html")
 
 
-@app.route('/edit')
-def edit():
+@app.route('/edit<TopicId>')
+def edit(TopicId):
     return render_template("edit.html")
 
 

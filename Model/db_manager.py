@@ -4,9 +4,14 @@ from Model.dbSmart import SmartDB
 
 
 class TableManager:
-
     @staticmethod
     def add_table(table_data):
+        pass
+
+
+class TopicManager:
+    @staticmethod
+    def add_table(topic_data):
         smart = SmartDB()
-        table = smart.insert_single(Table, table_data)
-        return smart.commit(TableJson(table))
+        topic = smart.insert_single(Topic, topic_data)
+        return smart.commit(TopicJSON(topic))
