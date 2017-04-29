@@ -110,3 +110,5 @@ installEvent = (obj) ->
     for key of event
         obj[key] = event[key]
     return obj
+
+

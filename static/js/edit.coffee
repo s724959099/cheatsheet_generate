@@ -1,3 +1,5 @@
+
+
 Vue.component('modal', {
     template: '#modal-template'
 })
@@ -13,9 +15,10 @@ Vue.component('table_add', {
 
 Vue.component('topic_table', {
     template: '#topic_table'
-    data: {
+    data: ->
+        return {
 
-    }
+        }
     methods: {
     }
 })
@@ -48,15 +51,21 @@ Vue.component('topic_table', {
 #            this.$emit('input', val)
 #    }
 #})
+$ ->
+    get_topic = ->
+        res = myAjax.getSync("/api/topic/#{url(2)}", null)
+        return res.data
 
 
-vm = new Vue({
-    el: '#app',
-    data: {
-        showModal: false
-    }
-    methods: {
-        add_click: ->
-            console.log("receive emit")
-    }
-})
+    vm = new Vue({
+        el: '#app',
+        data: {
+            showModal: false
+            topic: get_topic()
+            title:null,
+        }
+        methods: {
+            add_click: ->
+                console.log("receive emit")
+        }
+    })

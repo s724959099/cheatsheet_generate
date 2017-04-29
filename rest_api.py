@@ -56,11 +56,15 @@ class TopicREST(Resource):
 
 
 class TopicIdREST(Resource):
-    def get(self,TopicId):
-        pass
+    def get(self, TopicId):
+        return api_return.success({
+            "data": TopicManager.view_single(TopicId)
+        })
 
-    def put(self):
-        pass
+    @return_transform("topic")
+    def put(self,TopicId):
+        topic_data = json_get("topic_data")
+        return TopicManager.update_single(topic_data,TopicId)
 
     def delete(self):
         pass
