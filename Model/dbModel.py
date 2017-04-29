@@ -9,7 +9,7 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://cheat_sheet.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cheat_sheet.db'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 manager = Manager(app)
@@ -20,7 +20,7 @@ class Topic(db.Model):
     __tablename__ = 'Topic'
     TopicId = db.Column(db.Integer, primary_key=True, autoincrement=True)
     Name = db.Column(db.String(256), nullable=False)
-    SoftDelete = db.Column(TINYINT, nullable=False)
+    SoftDelete = db.Column(db.Integer, nullable=False)
     CreateDate = db.Column(db.DateTime(timezone=True), nullable=False)
     CreateBy = db.Column(db.String(128), nullable=False)
     ModifiedDate = db.Column(db.DateTime(timezone=True), nullable=True)
@@ -52,7 +52,7 @@ class Table(db.Model):
     Title = db.Column(db.String(256), nullable=False)
     SubTitle = db.Column(db.String(256), nullable=False)
     Color = db.Column(db.String(256), nullable=False)
-    SoftDelete = db.Column(TINYINT, nullable=False)
+    SoftDelete = db.Column(db.Integer, nullable=False)
     CreateDate = db.Column(db.DateTime(timezone=True), nullable=False)
     CreateBy = db.Column(db.String(128), nullable=False)
     ModifiedDate = db.Column(db.DateTime(timezone=True), nullable=True)
@@ -83,7 +83,7 @@ class TableColumn(db.Model):
     TableId = db.Column(db.Integer, db.ForeignKey("Table.TableId"), nullable=False)
     Name = db.Column(db.String(256), nullable=False)
     Comment = db.Column(db.String(256), nullable=True)
-    SoftDelete = db.Column(TINYINT, nullable=False)
+    SoftDelete = db.Column(db.Integer, nullable=False)
     CreateDate = db.Column(db.DateTime(timezone=True), nullable=False)
     CreateBy = db.Column(db.String(128), nullable=False)
     ModifiedDate = db.Column(db.DateTime(timezone=True), nullable=True)
