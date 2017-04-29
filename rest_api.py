@@ -39,7 +39,6 @@ class TableREST(Resource):
         return TableManager.add_table(table_data)
 
 
-
 class TopicREST(Resource):
     def get(self):
         pass
@@ -50,7 +49,7 @@ class TopicREST(Resource):
     def delete(self):
         pass
 
-    @return_transform()
+    @return_transform("topic")
     def post(self):
         topic_data = json_get("topic_data")
         return TopicManager.add_topic(topic_data)

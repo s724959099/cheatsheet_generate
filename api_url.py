@@ -9,4 +9,4 @@ api = Api(
     restapi, api_version='1.0', title="all topic lodash",
     description=""
 )
-api.add_resource(TableREST, '/api/table')
+api.add_resource(TopicREST, '/api/topic')
