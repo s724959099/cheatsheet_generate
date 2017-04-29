@@ -47,3 +47,7 @@ class BaseJSON:
                 dict_output.pop(name, None)
 
         return dict_output
+
+
+class TableJson(BaseJSON):
+    pass

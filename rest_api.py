@@ -1,15 +1,39 @@
-from flask_restful_swagger_2 import Api, swagger, Resource
+from flask_restful_swagger_2 import Resource
 from libs.flask_get import *
+from Model.db_manager import *
+from utli.mytool import *
+
+# from libs.flask_get import *
+
+"""
+
+class SampleREST(Resource):
+    def get(self):
+        pass
+
+    def put(self):
+        pass
+
+    def delete(self):
+        pass
+
+    def post(self):
+        pass
+
+"""
 
 
 class TableREST(Resource):
     def get(self):
-        return {
-            "UserId": session_get("UserId"),
-            "UserType": session_get("UserType")
-        }
+        pass
 
     def put(self):
-        session["UserId"] = json_get("UserId")
-        session["UserType"] = json_get("UserType")
-        return "ok"
+        pass
+
+    def delete(self):
+        pass
+
+    @return_transform()
+    def post(self):
+        table_data = json_get("table_data")
+        return TableManager.add_table(table_data)
