@@ -1,6 +1,8 @@
 from flask import *
+from api_url import api
 
 app = Flask(__name__)
+app.register_blueprint(api.blueprint)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 
