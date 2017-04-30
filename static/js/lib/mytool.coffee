@@ -112,3 +112,4 @@ installEvent = (obj) ->
     return obj
 
 
+Vue.options.delimiters = ['${', '}']

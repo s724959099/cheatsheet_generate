@@ -2,17 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>${topic.Name}</title>
     {% include "extend/staticfile.html" %}
     {% include "component/modal_add.html" %}
 
 </head>
 <body>
 <div id="app">
-    <div class="row justify-center color2">
-        <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="text" placeholder="text..." id="topic_name">
-        </div>
+    <div class="row justify-center color2" v-cloak>
+        <h2 v-editable>${topic.Name}</h2>
     </div>
     <div class="container column wrap justify-start content-start">
         <table_add
