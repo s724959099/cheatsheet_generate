@@ -23,31 +23,38 @@ Vue.component('table_add', {
     template: '#table_add'
     methods: {
         btn_fn: ->
-            console.log("btn_click")
             this.$emit("add_click")
     }
 })
 
-
-
-Vue.directive("editable", (el, binding)->
-    $el = $(el)
-    fn = binding.value
-    value = $el.text()
-    console.log("value=#{value}")
+editable_click_fn=($el,fn)->
     $el.on("click", ->
-        console.log("Test")
+
+        value = $el.text()
+        console.log("click")
         input_el = "<input type='text' value='" + value + "' id='_editable' '>"
         $(this).html(input_el)
         $(this).off("click")
         $input = $("#_editable")
         $input.setCursorPosition(value.length);
         $input.focus()
-        $input.on("click",->
-            console.log("click")
-            $(this).remove()
+        $input.on("keyup",(e)->
+            if e.which==13
+                console.log("click123")
+                fn($input.val())
+                $el=$($(this).parent()[0])
+                $(this).parent().text($input.val())
+                editable_click_fn($el,fn)
         )
     )
+
+
+
+Vue.directive("editable", (el, binding,vnode)->
+    $el = $(el)
+    fn = binding.value
+    editable_click_fn($el,fn)
+
 )
 
 
@@ -73,9 +80,15 @@ $ ->
         data: {
             showModal: false
             topic: get_topic()
-            title: null,
         }
         methods: {
+            edit_callback:(el_data)->
+                return (val)->
+                    obj=
+                        topic_data:
+                            Name:val
+                    myAjax.putSync("/api/topic/#{url(2)}",obj)
+
             add_click: ->
                 console.log("receive emit")
         }

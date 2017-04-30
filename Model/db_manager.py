@@ -26,4 +26,4 @@ class TopicManager:
         topic = TopicView.single(TopicId)
         smart = SmartDB()
         smart.update_single(topic, topic_data)
-        return smart.commit(topic)
+        return smart.commit(TopicJSON(topic))

@@ -1,0 +1,13 @@
+<template id="editable">
+    <div class="editable"
+         v-if="edit"
+    >
+        ${text}
+    </div>
+    <input type="text"
+           v-else
+           :model="$text"
+           id="_editable"
+    >
+
+</template>
